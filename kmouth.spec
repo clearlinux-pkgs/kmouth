@@ -5,22 +5,22 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kmouth
-Version  : 18.08.0
-Release  : 2
-URL      : https://download.kde.org/stable/applications/18.08.0/src/kmouth-18.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.08.0/src/kmouth-18.08.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.08.0/src/kmouth-18.08.0.tar.xz.sig
+Version  : 18.12.2
+Release  : 3
+URL      : https://download.kde.org/stable/applications/18.12.2/src/kmouth-18.12.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.2/src/kmouth-18.12.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.2/src/kmouth-18.12.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
-Requires: kmouth-bin
-Requires: kmouth-data
-Requires: kmouth-license
-Requires: kmouth-locales
-Requires: kmouth-man
+Requires: kmouth-bin = %{version}-%{release}
+Requires: kmouth-data = %{version}-%{release}
+Requires: kmouth-license = %{version}-%{release}
+Requires: kmouth-locales = %{version}-%{release}
+Requires: kmouth-man = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtbase-dev mesa-dev
 
 %description
 No detailed description available
@@ -28,9 +28,9 @@ No detailed description available
 %package bin
 Summary: bin components for the kmouth package.
 Group: Binaries
-Requires: kmouth-data
-Requires: kmouth-license
-Requires: kmouth-man
+Requires: kmouth-data = %{version}-%{release}
+Requires: kmouth-license = %{version}-%{release}
+Requires: kmouth-man = %{version}-%{release}
 
 %description bin
 bin components for the kmouth package.
@@ -47,7 +47,7 @@ data components for the kmouth package.
 %package doc
 Summary: doc components for the kmouth package.
 Group: Documentation
-Requires: kmouth-man
+Requires: kmouth-man = %{version}-%{release}
 
 %description doc
 doc components for the kmouth package.
@@ -78,26 +78,26 @@ man components for the kmouth package.
 
 
 %prep
-%setup -q -n kmouth-18.08.0
+%setup -q -n kmouth-18.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535431215
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1549870992
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535431215
+export SOURCE_DATE_EPOCH=1549870992
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/kmouth
-cp COPYING %{buildroot}/usr/share/doc/kmouth/COPYING
-cp COPYING.DOC %{buildroot}/usr/share/doc/kmouth/COPYING.DOC
+mkdir -p %{buildroot}/usr/share/package-licenses/kmouth
+cp COPYING %{buildroot}/usr/share/package-licenses/kmouth/COPYING
+cp COPYING.DOC %{buildroot}/usr/share/package-licenses/kmouth/COPYING.DOC
 pushd clr-build
 %make_install
 popd
@@ -217,12 +217,12 @@ popd
 /usr/share/doc/HTML/uk/kmouth/index.docbook
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/kmouth/COPYING
-/usr/share/doc/kmouth/COPYING.DOC
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/kmouth/COPYING
+/usr/share/package-licenses/kmouth/COPYING.DOC
 
 %files man
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 /usr/share/man/ca/man1/kmouth.1
 /usr/share/man/da/man1/kmouth.1
 /usr/share/man/de/man1/kmouth.1
