@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kmouth
-Version  : 18.12.2
-Release  : 4
-URL      : https://download.kde.org/stable/applications/18.12.2/src/kmouth-18.12.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.12.2/src/kmouth-18.12.2.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.12.2/src/kmouth-18.12.2.tar.xz.sig
+Version  : 18.12.3
+Release  : 5
+URL      : https://download.kde.org/stable/applications/18.12.3/src/kmouth-18.12.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.3/src/kmouth-18.12.3.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.3/src/kmouth-18.12.3.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -30,7 +30,6 @@ Summary: bin components for the kmouth package.
 Group: Binaries
 Requires: kmouth-data = %{version}-%{release}
 Requires: kmouth-license = %{version}-%{release}
-Requires: kmouth-man = %{version}-%{release}
 
 %description bin
 bin components for the kmouth package.
@@ -78,22 +77,23 @@ man components for the kmouth package.
 
 
 %prep
-%setup -q -n kmouth-18.12.2
+%setup -q -n kmouth-18.12.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1549888258
+export SOURCE_DATE_EPOCH=1552002513
 mkdir -p clr-build
 pushd clr-build
+export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1549888258
+export SOURCE_DATE_EPOCH=1552002513
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmouth
 cp COPYING %{buildroot}/usr/share/package-licenses/kmouth/COPYING
@@ -147,6 +147,11 @@ popd
 %defattr(0644,root,root,0755)
 /usr/share/doc/HTML/ca/kmouth/index.cache.bz2
 /usr/share/doc/HTML/ca/kmouth/index.docbook
+/usr/share/doc/HTML/ca/kmouth/kmouthcctts.png
+/usr/share/doc/HTML/ca/kmouth/kmouthcpref.png
+/usr/share/doc/HTML/ca/kmouth/kmouthwizard1.png
+/usr/share/doc/HTML/ca/kmouth/kmouthwizard2.png
+/usr/share/doc/HTML/ca/kmouth/kmouthwizard3.png
 /usr/share/doc/HTML/da/kmouth/index.cache.bz2
 /usr/share/doc/HTML/da/kmouth/index.docbook
 /usr/share/doc/HTML/de/kmouth/index.cache.bz2
