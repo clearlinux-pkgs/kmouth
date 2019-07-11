@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kmouth
-Version  : 19.04.2
-Release  : 9
-URL      : https://download.kde.org/stable/applications/19.04.2/src/kmouth-19.04.2.tar.xz
-Source0  : https://download.kde.org/stable/applications/19.04.2/src/kmouth-19.04.2.tar.xz
-Source99 : https://download.kde.org/stable/applications/19.04.2/src/kmouth-19.04.2.tar.xz.sig
+Version  : 19.04.3
+Release  : 10
+URL      : https://download.kde.org/stable/applications/19.04.3/src/kmouth-19.04.3.tar.xz
+Source0  : https://download.kde.org/stable/applications/19.04.3/src/kmouth-19.04.3.tar.xz
+Source99 : https://download.kde.org/stable/applications/19.04.3/src/kmouth-19.04.3.tar.xz.sig
 Summary  : Speech Synthesizer Frontend
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -77,16 +77,17 @@ man components for the kmouth package.
 
 
 %prep
-%setup -q -n kmouth-19.04.2
+%setup -q -n kmouth-19.04.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1559895551
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1562875792
 mkdir -p clr-build
 pushd clr-build
+export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
@@ -95,11 +96,11 @@ export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags}
+make  %{?_smp_mflags} VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1559895551
+export SOURCE_DATE_EPOCH=1562875792
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmouth
 cp COPYING %{buildroot}/usr/share/package-licenses/kmouth/COPYING
@@ -182,11 +183,6 @@ popd
 /usr/share/doc/HTML/en/kmouth/kmouthwizard3.png
 /usr/share/doc/HTML/es/kmouth/index.cache.bz2
 /usr/share/doc/HTML/es/kmouth/index.docbook
-/usr/share/doc/HTML/es/kmouth/kmouthcpref.png
-/usr/share/doc/HTML/es/kmouth/kmouthctts.png
-/usr/share/doc/HTML/es/kmouth/kmouthcwcp.png
-/usr/share/doc/HTML/es/kmouth/kmouthedit.png
-/usr/share/doc/HTML/es/kmouth/kmouthmain.png
 /usr/share/doc/HTML/fr/kmouth/index.cache.bz2
 /usr/share/doc/HTML/fr/kmouth/index.docbook
 /usr/share/doc/HTML/fr/kmouth/kmouthcpref.png
