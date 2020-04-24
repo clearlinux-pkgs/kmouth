@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kmouth
-Version  : 19.12.3
-Release  : 18
-URL      : https://download.kde.org/stable/release-service/19.12.3/src/kmouth-19.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/19.12.3/src/kmouth-19.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/19.12.3/src/kmouth-19.12.3.tar.xz.sig
+Version  : 20.04.0
+Release  : 19
+URL      : https://download.kde.org/stable/release-service/20.04.0/src/kmouth-20.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.04.0/src/kmouth-20.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.04.0/src/kmouth-20.04.0.tar.xz.sig
 Summary  : Speech Synthesizer Frontend
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -77,15 +77,15 @@ man components for the kmouth package.
 
 
 %prep
-%setup -q -n kmouth-19.12.3
-cd %{_builddir}/kmouth-19.12.3
+%setup -q -n kmouth-20.04.0
+cd %{_builddir}/kmouth-20.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583451050
+export SOURCE_DATE_EPOCH=1587690577
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -102,11 +102,11 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1583451050
+export SOURCE_DATE_EPOCH=1587690577
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmouth
-cp %{_builddir}/kmouth-19.12.3/COPYING %{buildroot}/usr/share/package-licenses/kmouth/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/kmouth-19.12.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/kmouth/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
+cp %{_builddir}/kmouth-20.04.0/COPYING %{buildroot}/usr/share/package-licenses/kmouth/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/kmouth-20.04.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/kmouth/1bd373e4851a93027ba70064bd7dbdc6827147e1
 pushd clr-build
 %make_install
 popd
@@ -132,6 +132,11 @@ popd
 /usr/share/icons/hicolor/32x32/actions/phrasebook.png
 /usr/share/icons/hicolor/32x32/apps/kmouth.png
 /usr/share/icons/hicolor/48x48/apps/kmouth.png
+/usr/share/kmouth/books/ca/ca-courteousness.phrasebook
+/usr/share/kmouth/books/ca/ca-greetings.phrasebook
+/usr/share/kmouth/books/ca/ca-howareyou.phrasebook
+/usr/share/kmouth/books/ca/ca-personal.phrasebook
+/usr/share/kmouth/books/ca/ca.desktop
 /usr/share/kmouth/books/de/de-courteousness.phrasebook
 /usr/share/kmouth/books/de/de-greetings.phrasebook
 /usr/share/kmouth/books/de/de-howareyou.phrasebook
@@ -227,8 +232,8 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
+/usr/share/package-licenses/kmouth/1bd373e4851a93027ba70064bd7dbdc6827147e1
 /usr/share/package-licenses/kmouth/7c203dee3a03037da436df03c4b25b659c073976
-/usr/share/package-licenses/kmouth/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
 
 %files man
 %defattr(0644,root,root,0755)
