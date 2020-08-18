@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kmouth
-Version  : 20.04.2
-Release  : 21
-URL      : https://download.kde.org/stable/release-service/20.04.2/src/kmouth-20.04.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.2/src/kmouth-20.04.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.2/src/kmouth-20.04.2.tar.xz.sig
+Version  : 20.08.0
+Release  : 22
+URL      : https://download.kde.org/stable/release-service/20.08.0/src/kmouth-20.08.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.08.0/src/kmouth-20.08.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.08.0/src/kmouth-20.08.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -78,15 +78,15 @@ man components for the kmouth package.
 
 
 %prep
-%setup -q -n kmouth-20.04.2
-cd %{_builddir}/kmouth-20.04.2
+%setup -q -n kmouth-20.08.0
+cd %{_builddir}/kmouth-20.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1591897701
+export SOURCE_DATE_EPOCH=1597788822
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -98,15 +98,15 @@ export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags}  VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1591897701
+export SOURCE_DATE_EPOCH=1597788822
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmouth
-cp %{_builddir}/kmouth-20.04.2/COPYING %{buildroot}/usr/share/package-licenses/kmouth/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/kmouth-20.04.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/kmouth/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/kmouth-20.08.0/COPYING %{buildroot}/usr/share/package-licenses/kmouth/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/kmouth-20.08.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/kmouth/1bd373e4851a93027ba70064bd7dbdc6827147e1
 pushd clr-build
 %make_install
 popd
@@ -199,6 +199,14 @@ popd
 /usr/share/doc/HTML/fr/kmouth/kmouthwizard.png
 /usr/share/doc/HTML/it/kmouth/index.cache.bz2
 /usr/share/doc/HTML/it/kmouth/index.docbook
+/usr/share/doc/HTML/it/kmouth/kmouthcpref.png
+/usr/share/doc/HTML/it/kmouth/kmouthctts.png
+/usr/share/doc/HTML/it/kmouth/kmouthcwcp.png
+/usr/share/doc/HTML/it/kmouth/kmouthedit.png
+/usr/share/doc/HTML/it/kmouth/kmouthmain.png
+/usr/share/doc/HTML/it/kmouth/kmouthwizard1.png
+/usr/share/doc/HTML/it/kmouth/kmouthwizard2.png
+/usr/share/doc/HTML/it/kmouth/kmouthwizard3.png
 /usr/share/doc/HTML/nl/kmouth/index.cache.bz2
 /usr/share/doc/HTML/nl/kmouth/index.docbook
 /usr/share/doc/HTML/nl/kmouth/kmouthcpref.png
