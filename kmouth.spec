@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kmouth
-Version  : 21.04.0
-Release  : 28
-URL      : https://download.kde.org/stable/release-service/21.04.0/src/kmouth-21.04.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.04.0/src/kmouth-21.04.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.04.0/src/kmouth-21.04.0.tar.xz.sig
+Version  : 21.04.2
+Release  : 29
+URL      : https://download.kde.org/stable/release-service/21.04.2/src/kmouth-21.04.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.04.2/src/kmouth-21.04.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.04.2/src/kmouth-21.04.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -78,15 +78,15 @@ man components for the kmouth package.
 
 
 %prep
-%setup -q -n kmouth-21.04.0
-cd %{_builddir}/kmouth-21.04.0
+%setup -q -n kmouth-21.04.2
+cd %{_builddir}/kmouth-21.04.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1619219812
+export SOURCE_DATE_EPOCH=1623393645
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -102,11 +102,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1619219812
+export SOURCE_DATE_EPOCH=1623393645
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmouth
-cp %{_builddir}/kmouth-21.04.0/COPYING %{buildroot}/usr/share/package-licenses/kmouth/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/kmouth-21.04.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/kmouth/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/kmouth-21.04.2/COPYING %{buildroot}/usr/share/package-licenses/kmouth/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/kmouth-21.04.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/kmouth/1bd373e4851a93027ba70064bd7dbdc6827147e1
 pushd clr-build
 %make_install
 popd
