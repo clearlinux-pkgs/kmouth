@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kmouth
-Version  : 21.12.3
-Release  : 38
-URL      : https://download.kde.org/stable/release-service/21.12.3/src/kmouth-21.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/21.12.3/src/kmouth-21.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/21.12.3/src/kmouth-21.12.3.tar.xz.sig
+Version  : 22.04.0
+Release  : 39
+URL      : https://download.kde.org/stable/release-service/22.04.0/src/kmouth-22.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.04.0/src/kmouth-22.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.04.0/src/kmouth-22.04.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause GFDL-1.2 GPL-2.0
@@ -21,7 +21,6 @@ Requires: kmouth-man = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules-data
-BuildRequires : qtbase-dev mesa-dev
 
 %description
 No detailed description available
@@ -78,15 +77,15 @@ man components for the kmouth package.
 
 
 %prep
-%setup -q -n kmouth-21.12.3
-cd %{_builddir}/kmouth-21.12.3
+%setup -q -n kmouth-22.04.0
+cd %{_builddir}/kmouth-22.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1646533185
+export SOURCE_DATE_EPOCH=1650668201
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -102,12 +101,12 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1646533185
+export SOURCE_DATE_EPOCH=1650668201
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmouth
-cp %{_builddir}/kmouth-21.12.3/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/kmouth/29fb05b49e12a380545499938c4879440bd8851e
-cp %{_builddir}/kmouth-21.12.3/COPYING %{buildroot}/usr/share/package-licenses/kmouth/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/kmouth-21.12.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/kmouth/1bd373e4851a93027ba70064bd7dbdc6827147e1
+cp %{_builddir}/kmouth-22.04.0/CMakePresets.json.license %{buildroot}/usr/share/package-licenses/kmouth/29fb05b49e12a380545499938c4879440bd8851e
+cp %{_builddir}/kmouth-22.04.0/COPYING %{buildroot}/usr/share/package-licenses/kmouth/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/kmouth-22.04.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/kmouth/1bd373e4851a93027ba70064bd7dbdc6827147e1
 pushd clr-build
 %make_install
 popd
@@ -228,8 +227,6 @@ popd
 /usr/share/doc/HTML/pt_BR/kmouth/kmouthwizard1.png
 /usr/share/doc/HTML/pt_BR/kmouth/kmouthwizard2.png
 /usr/share/doc/HTML/pt_BR/kmouth/kmouthwizard3.png
-/usr/share/doc/HTML/ru/kmouth/index.cache.bz2
-/usr/share/doc/HTML/ru/kmouth/index.docbook
 /usr/share/doc/HTML/sv/kmouth/index.cache.bz2
 /usr/share/doc/HTML/sv/kmouth/index.docbook
 /usr/share/doc/HTML/sv/kmouth/kmouthcpref.png
@@ -260,7 +257,6 @@ popd
 /usr/share/man/nl/man1/kmouth.1
 /usr/share/man/pt/man1/kmouth.1
 /usr/share/man/pt_BR/man1/kmouth.1
-/usr/share/man/ru/man1/kmouth.1
 /usr/share/man/sv/man1/kmouth.1
 /usr/share/man/uk/man1/kmouth.1
 
